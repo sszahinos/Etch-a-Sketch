@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.grid-container {
+    display: grid;
+    gap: 0px;
+}
+
+.grid-item {
+    /*SQUARE*/
+}
