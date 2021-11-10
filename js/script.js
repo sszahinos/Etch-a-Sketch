@@ -1,8 +1,12 @@
 const ROOT = document.documentElement;
+
 const BUT_ERASE = document.querySelector("#but-erase");
 const BUT_COLOR = document.querySelector("#but-color");
 const BUT_RAINBOW = document.querySelector("#but-rainbow");
 const BUT_CLEAR = document.querySelector("#but-clear");
+
+const SLIDER_GRID_SIZE = document.querySelector("#grid-size");
+const DIV_GRID_SIZE = document.querySelector("#pixel-size");
 
 const CONTAINER = document.querySelector(".grid-container");
 const CELL = document.createElement("div");
@@ -18,7 +22,10 @@ let selectedColor = "#000";
 CELL.classList.add("grid-item");
 
 configureButtons();
+configureSlider();
+
 fillGrid(10);
+
 
 //Buttons config
 function configureButtons() {
@@ -38,6 +45,17 @@ function configureButtons() {
         "click",
         (e) => {clearColors()}
     );
+}
+
+function configureSlider() {
+    SLIDER_GRID_SIZE.addEventListener(
+        'input', 
+        () =>{
+            DIV_GRID_SIZE.textContent = SLIDER_GRID_SIZE.value;
+            reloadGrid();
+        }
+    );
+
 }
 
 //Creates a square grid with gridNum HxV
@@ -62,7 +80,7 @@ function addHoverListener() {
                 colorCell(cell);
             }
         });
-        cell.addEventListener("touchmove", (e) => {
+        cell.addEventListener("touchstart", (e) => {
             console.log("event: " + e);        
             colorCell(cell);
             
@@ -96,9 +114,8 @@ function clearColors() {
     });
 }
 
-/*
-function changeCellSize(newSize) {
-    CELL.style.width = `${newSize}px`;
+function reloadGrid() {
+    while ( CONTAINER.firstChild ) CONTAINER.removeChild( CONTAINER.firstChild );
+    fillGrid(SLIDER_GRID_SIZE.value);
 }
-*/
 
