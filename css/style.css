@@ -138,16 +138,16 @@ footer {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 70%; /* Set a specific slider handle width */
-    height: 70%; /* Slider handle height */
-    background: #04AA6D; /* Green background */
+    width: 8%; /* Set a specific slider handle width */
+    height: 300%; /* Slider handle height */
+    background: #000000; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
     width: 8%;
     height: 300%;
-    background: #000000d8;
+    background: #000000;
     cursor: pointer;
 }
 
